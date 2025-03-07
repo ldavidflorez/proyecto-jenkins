@@ -19,7 +19,7 @@ services:
     restart: unless-stopped
     command: tunnel --no-autoupdate run
     environment:
-      - TUNNEL_TOKEN=eyJhIjoiMmNkMmYyOWY0ODc2NjQ0MTY1MmRkMjU3ZjgzZTg5NmMiLCJ0IjoiNTBkNzc3YjYtMDEwYi00M2IzLThlNGYtNjhjMDMwOThkNzUxIiwicyI6Ik1UUTFORGhrT1RJdE9EUXdOeTAwTTJaaExXRTJOR010TTJJd1lUZ3hPR0l6TW1KbCJ9  # Reemplaza con tu token de túnel
+      - TUNNEL_TOKEN=eyJhIjoiMmNkMmYyOWY0ODc2NjQ0MTY1MmRkMjU3ZjgzZTg5NmMiLCJ0IjoiNTBkNzc3YjYtMDEwYi00M2IzLThlNGYtNjhjMDMwOThkNzUxIiwicyI6Ik1UUTFORGhrT1RJdE9EUXdOeTAwTTJaaExXRTJOR010TTJJd1lUZ3hPR0l6TW1KbCJ9
 
 volumes:
   jenkins_home:
