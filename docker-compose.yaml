@@ -1,6 +1,7 @@
 version: '3.8'
 
-services: #TEST
+# Services to deploy
+services:
   jenkins:
     image: jenkins/jenkins:lts
     container_name: jenkins
