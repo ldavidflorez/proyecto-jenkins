@@ -1,6 +1,5 @@
 version: '3.8'
 
-# Services to deploy
 services:
   jenkins:
     image: jenkins/jenkins:lts
@@ -20,7 +19,7 @@ services:
     restart: unless-stopped
     command: tunnel --no-autoupdate run
     environment:
-      - TUNNEL_TOKEN=eyJhIjoiMmNkMmYyOWY0ODc2NjQ0MTY1MmRkMjU3ZjgzZTg5NmMiLCJ0IjoiNTBkNzc3YjYtMDEwYi00M2IzLThlNGYtNjhjMDMwOThkNzUxIiwicyI6Ik1UUTFORGhrT1RJdE9EUXdOeTAwTTJaaExXRTJOR010TTJJd1lUZ3hPR0l6TW1KbCJ9
+      - TUNNEL_TOKEN=${CLOUDFLARED_TUNNEL_TOKEN}
 
 volumes:
   jenkins_home:
