@@ -39,7 +39,6 @@ pipeline {
         stage('Deploy Simulation') {
             steps {
                 echo "Simulating deployment... Files are in ./publish"
-                sh 'ls -la ./publish'
             }
         }
     }
