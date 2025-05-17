@@ -1,57 +1,40 @@
 pipeline {
     agent any
 
-    environment {
-        DOTNET_VERSION = '8.0'
-    }
-
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/ldavidflorez/proyecto-jenkins.git'
-            }
-        }
-
         stage('Restore') {
             steps {
-                sh 'dotnet restore'
+                bat 'dotnet restore'
             }
         }
-
         stage('Build') {
             steps {
-                sh 'dotnet build --no-restore --configuration Release'
+                bat 'dotnet build --no-restore'
             }
         }
-
         stage('Test') {
             steps {
-                sh 'dotnet test --no-build --configuration Release --logger trx'
+                bat 'dotnet test --no-build --verbosity normal'
             }
         }
-
         stage('Publish') {
             steps {
-                sh 'dotnet publish --no-build --configuration Release -o ./publish'
+                bat 'dotnet publish --configuration Release --output ./publish'
             }
         }
-
         stage('Deploy Simulation') {
             steps {
-                echo "Simulating deployment... Files are in ./publish"
+                echo 'Simulated deployment'
             }
         }
     }
 
     post {
         always {
-            echo "Pipeline completed (success or fail)."
-        }
-        success {
-            echo "Build and tests succeeded!"
+            echo 'Pipeline completed (success or fail).'
         }
         failure {
-            echo "Something went wrong during the pipeline."
+            echo 'Something went wrong during the pipeline.'
         }
     }
 }
